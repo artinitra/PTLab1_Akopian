@@ -1,0 +1,29 @@
+@startuml
+
+abstract class DataReader {
+    +read(path: str): DataType
+}
+
+class TextDataReader {
+    +key: str
+    +students: dict
+    +read(path: str): DataType
+}
+DataReader <|-- TextDataReader
+
+class CalcRating {
+    +data: DataType
+    +rating: RatingType
+    +__init__(data)
+    +calc(): RatingType
+}
+
+class RatingFilter {
+    +data: dict
+    +filtered_rating: dict
+    +__init__(data)
+    +filter_get_second_quantile(): RatingType
+}
+
+@enduml
+
